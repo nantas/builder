@@ -1,0 +1,72 @@
+<link rel="import" href="packages://ui-kit/widget/index.html">
+<link rel="import" href="packages://ui-property/widget/index.html">
+<dom-module id="fire-builder">
+    <link rel="import" type="css" href="fire-builder.css">
+    <template>
+        <div class="title">
+            <h2>Build Settings</h2>
+            <span class="tip" id="tip">
+                Please enter the correct data!
+            </span>
+        </div>
+        <div class="section">
+            <editor-custom-prop name="Project Name">
+                <editor-input value="{{projectInfo.name}}"></editor-input>
+            </editor-custom-prop>
+
+            <editor-custom-prop name="Platform">
+                <editor-select value="{{platform}}">
+                    <editor-option value="web-mobile">Web Mobile</editor-option>
+                    <editor-option value="Web-Desktop">Web Desktop</editor-option>
+                </editor-select>
+            </editor-custom-prop>
+
+            <editor-custom-prop name="Build Path">
+                <div class="layout horizontal center">
+                    <editor-input class="flex-2" value="{{buildPath}}"></editor-input>
+                    <editor-button class="small" style="margin-left: 5px;" on-click="_chooseDistPath">···</editor-button>
+                </div>
+            </editor-custom-prop>
+
+            <editor-custom-prop name="Show in finder">
+                <div class="layout horizontal center">
+                    <span class="path flex-4">{{buildPath}}</span>
+                    <editor-button class="small" style="margin-left: 5px;" on-click="_showInFinder">Show in finder</editor-button>
+                </div>
+            </editor-custom-prop>
+
+            <editor-custom-prop name="Start Scene">
+                <editor-select value="">
+                    <!-- <editor-option value="web-mobile">Web Mobile</editor-option> -->
+                </editor-select>
+            </editor-custom-prop>
+
+            <editor-custom-prop name="Scenes In Build">
+                <div class="items">
+                    <div class="box-border">
+                    </div>
+                </div>
+            </editor-custom-prop>
+
+            <editor-custom-prop name="Debug Mode">
+                <editor-checkbox checked="{{isDebug}}"></editor-checkbox>
+            </editor-custom-prop>
+
+            <editor-custom-prop name="Preview">
+                <div class="layout horizontal center">
+                    <span class="link flex-4" on-click="_previewAction">http://localhost:7456</span>
+                    <editor-button class="small" on-click="_previewAction" style="margin-left: 5px;">Open in Browser</editor-button>
+                </div>
+            </editor-custom-prop>
+        </div>
+
+        <div class="btn-group">
+            <button class="green" on-mouseenter="_buildButtonHoverInAction" on-mouseleave="_buildButtonHoverOutAction">
+                <span id="build_text">Build</span>
+                <li id="build_icon" hidden class="fa fa-download"></li>
+            </button>
+            <button class="red" on-click="_closeWindow">Close</button>
+        </div>
+    </template>
+    <script type="text/javascript" src="fire-builder.js"></script>
+</dom-module>
