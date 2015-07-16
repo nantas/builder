@@ -1,0 +1,95 @@
+:host {
+    color: #ddd;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.title {
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    line-height: 40px;
+    padding-left: 15px;
+    border-bottom: 1px solid #666;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.tip {
+    color: #f00;
+    font-size: 12px;
+    line-height: 60px;
+    margin-left: 20px;
+    float: left;
+    display: none;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+editor-custom-prop {
+    padding: 8px 0px;
+}
+
+:host ::content .name.editor-custom-prop {
+    text-align: right;
+    margin-right: 25px;
+}
+
+.path {
+    font-size: 10px;
+    word-break: break-all;
+}
+
+.item-box {
+    height: 100px;
+    max-height: 100px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.items {
+    height: 80px;
+}
+
+.items editor-checkbox {
+    margin: 3px;
+}
+
+.box-border {
+    overflow-y: auto;
+    height: 80px;
+    border: 1px solid #666666;
+    box-shadow: inset 0 0 8px 2px rgba(0,0,0,0.2);
+    background: #333;
+}
+
+.link {
+    font-size: 12px;
+    -webkit-user-select: initial;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: #0c90e6;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+editor-button {
+    margin: 5px;
+}
