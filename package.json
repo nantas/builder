@@ -18,7 +18,9 @@
       "type": "dockable",
       "title": "fire-builder",
       "width": 500,
+      "min-width": 325,
       "height": 550,
+      "min-height": 550,
       "messages": [
       ]
     }
