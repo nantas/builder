@@ -1,5 +1,5 @@
 {
-  "name": "fire-builder",
+  "name": "editor-builder",
   "version": "0.0.1",
   "description": "builder for Fireball",
   "author": "Firebox Technology",
@@ -9,14 +9,14 @@
   "main": "main.js",
   "menus": {
     "File/Build-Settings": {
-      "message": "fire-builder:open"
+      "message": "editor-builder:open"
     }
   },
   "panels": {
     "panel": {
-      "frame": "panel/fire-builder.html",
+      "frame": "panel/editor-builder.html",
       "type": "dockable",
-      "title": "fire-builder",
+      "title": "Builder",
       "width": 500,
       "min-width": 325,
       "height": 550,
