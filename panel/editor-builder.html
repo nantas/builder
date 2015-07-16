@@ -24,14 +24,14 @@
             <editor-custom-prop name="Build Path">
                 <div class="layout horizontal center">
                     <editor-input class="flex-2" value="{{buildPath}}"></editor-input>
-                    <editor-button class="small" style="margin-left: 5px;" on-click="_chooseDistPath">···</editor-button>
+                    <editor-button class="small" style="margin-left: 5px;" on-click="_onChooseDistPathClick">···</editor-button>
                 </div>
             </editor-custom-prop>
 
             <editor-custom-prop name="Show in finder">
                 <div class="layout horizontal center">
                     <span class="path flex-4">{{buildPath}}</span>
-                    <editor-button class="small" style="margin-left: 5px;" on-click="_showInFinder">Show in finder</editor-button>
+                    <editor-button class="small" style="margin-left: 5px;" on-click="_onShowInFinderClick">Show in finder</editor-button>
                 </div>
             </editor-custom-prop>
 
@@ -54,14 +54,14 @@
 
             <editor-custom-prop name="Preview">
                 <div class="layout horizontal center">
-                    <span class="link flex-4" on-click="_previewAction">http://localhost:7456</span>
-                    <editor-button class="small" on-click="_previewAction" style="margin-left: 5px;">Open in Browser</editor-button>
+                    <span class="link flex-4" on-click="_onPreviewClick">http://localhost:7456</span>
+                    <editor-button class="small" on-click="_onPreviewClick" style="margin-left: 5px;">Open in Browser</editor-button>
                 </div>
             </editor-custom-prop>
         </div>
 
         <div class="btn-group">
-            <editor-button class="red large" on-click="_closeWindow">Close</editor-button>
+            <editor-button class="red large" on-click="_onCloseWindowClick">Close</editor-button>
             <editor-button class="green large">Build</editor-button>
         </div>
     </template>

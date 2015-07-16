@@ -33,7 +33,7 @@ Editor.registerPanel( 'editor-builder.panel', {
         this.buildPath = this.projectInfo.path;
     },
 
-    _chooseDistPath: function (event) {
+    _onChooseDistPathClick: function (event) {
         event.stopPropagation();
 
         var dialog = Remote.require('dialog');
@@ -51,7 +51,7 @@ Editor.registerPanel( 'editor-builder.panel', {
         }.bind(this));
     },
 
-    _showInFinder: function (event) {
+    _onShowInFinderClick: function (event) {
         event.stopPropagation();
 
         if (!Fs.existsSync(this.buildPath)) {
@@ -63,14 +63,14 @@ Editor.registerPanel( 'editor-builder.panel', {
 
     },
 
-    _previewAction: function (event) {
+    _onPreviewClick: function (event) {
         event.stopPropagation();
 
         Shell.openExternal('http://localhost:7456');
         Shell.beep();
     },
 
-    _closeWindow: function (event) {
+    _onCloseWindowClick: function (event) {
         event.stopPropagation();
 
         window.close();
