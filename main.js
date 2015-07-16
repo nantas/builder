@@ -5,7 +5,7 @@ module.exports = {
     unload: function () {
     },
 
-    'editor-builder:open': function () {
-        Editor.Panel.open('editor-builder.panel');
+    'builder:open': function () {
+        Editor.Panel.open('builder.panel');
     },
 };

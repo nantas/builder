@@ -4,7 +4,7 @@ var Fs = require('fire-fs');
 var Path = require('fire-path');
 var Shell = require('shell');
 
-Editor.registerPanel( 'editor-builder.panel', {
+Editor.registerPanel( 'builder.panel', {
     is: 'editor-builder',
 
     properties: {

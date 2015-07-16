@@ -1,7 +1,7 @@
 {
-  "name": "editor-builder",
+  "name": "builder",
   "version": "0.0.1",
-  "description": "builder for Fireball",
+  "description": "Fireball Project Builder",
   "author": "Firebox Technology",
   "hosts": {
       "editor-framework": "^0.3.10"
@@ -9,12 +9,12 @@
   "main": "main.js",
   "menus": {
     "File/Build-Settings": {
-      "message": "editor-builder:open"
+      "message": "builder:open"
     }
   },
   "panels": {
     "panel": {
-      "frame": "panel/editor-builder.html",
+      "frame": "panel/builder.html",
       "type": "dockable",
       "title": "Builder",
       "width": 500,
