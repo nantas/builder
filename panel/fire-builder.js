@@ -75,18 +75,4 @@ Editor.registerPanel( 'fire-builder.panel', {
 
         window.close();
     },
-
-    _buildButtonHoverInAction: function (event) {
-        event.stopPropagation();
-
-        this.$.build_text.hidden = true;
-        this.$.build_icon.hidden = false;
-    },
-
-    _buildButtonHoverOutAction: function (event) {
-        event.stopPropagation();
-
-        this.$.build_text.hidden = false;
-        this.$.build_icon.hidden = true;
-    },
 });
