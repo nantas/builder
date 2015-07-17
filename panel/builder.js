@@ -75,4 +75,12 @@ Editor.registerPanel( 'builder.panel', {
 
         window.close();
     },
+
+    _onBuildClick: function (event) {
+        event.stopPropagation();
+
+        Editor.info('Not implemented yet, coming next week!');
+
+        window.close();
+    },
 });

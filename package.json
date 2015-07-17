@@ -9,7 +9,8 @@
   "main": "main.js",
   "menus": {
     "File/Build-Settings": {
-      "message": "builder:open"
+      "message": "builder:open",
+      "accelerator": "CmdOrCtrl+Shift+B"
     }
   },
   "panels": {
