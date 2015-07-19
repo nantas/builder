@@ -78,9 +78,17 @@ Editor.registerPanel( 'builder.panel', {
 
     _onBuildClick: function (event) {
         event.stopPropagation();
+        var buildUuidList = Editor.Selection.curSelection('asset');
+        if (buildUuidList.length > 0) {
+            Editor.sendToCore('app:build-project', this.platform, this.buildPath, buildUuidList, {
+                projectName: this.projectInfo.name,
+                isDebug: this.isDebug
+            });
 
-        Editor.info('Not implemented yet, coming next week!');
-
-        window.close();
+            window.close();
+        }
+        else {
+            Editor.error('Please select scenes to build');
+        }
     },
 });
