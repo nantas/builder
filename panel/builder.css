@@ -2,31 +2,22 @@
     color: #ddd;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
-.title {
-    width: 100%;
-    float: left;
-    font-size: 18px;
-    line-height: 40px;
-    padding-left: 15px;
-    border-bottom: 1px solid #666;
-}
-
 h2 {
-    margin-top: 10px;
+    font-size: 30px;
+    margin: 0px;
     margin-bottom: 10px;
 }
 
-.tip {
-    color: #f00;
-    font-size: 12px;
-    line-height: 60px;
-    margin-left: 20px;
-    float: left;
-    display: none;
+.state {
+    color: #888;
+}
+
+.title {
+    padding: 10px;
+    border-bottom: 1px solid #666;
 }
 
 .section {
@@ -42,13 +33,6 @@ editor-custom-prop {
 :host ::content .name.editor-custom-prop {
     text-align: right;
     margin-right: 25px;
-}
-
-.item-box {
-    height: 100px;
-    max-height: 100px;
-    overflow: hidden;
-    margin-top: 5px;
 }
 
 .list-view {
@@ -84,13 +68,12 @@ editor-button {
     margin-left: 5px;
 }
 
-.btn-group {
-    display: flex;
+.group {
     justify-content: flex-end;
     padding: 10px;
 }
 
-.btn-group editor-button {
+.group editor-button {
     width: 100px;
     margin-left: 10px;
 }

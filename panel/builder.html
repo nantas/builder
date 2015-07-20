@@ -5,10 +5,14 @@
     <template>
         <div class="title">
             <h2>Build Settings</h2>
-            <span class="tip" id="tip">
-                Please enter the correct data!
-            </span>
+            <div hidden="{{!_isBuilding(buildState)}}" class="layout horizontal center">
+                <span class="state flex-1">[[buildState]]</span>
+                <editor-progress id="progress" class="blue small flex-4"
+                    value="[[buildProgress]]"
+                ></editor-progress>
+            </div>
         </div>
+
         <div class="section flex-1">
             <editor-custom-prop name="Title">
                 <editor-input value="{{profiles.project.title}}"></editor-input>
@@ -71,7 +75,7 @@
             </editor-custom-prop>
         </div>
 
-        <div class="btn-group">
+        <div class="group layout horizontal center">
             <editor-button class="green large" nofocus on-click="_onBuildClick">Build</editor-button>
         </div>
     </template>

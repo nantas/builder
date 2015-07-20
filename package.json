@@ -24,6 +24,7 @@
       "height": 550,
       "min-height": 550,
       "messages": [
+        "builder:state-changed"
       ],
       "profiles": {
         "project": {

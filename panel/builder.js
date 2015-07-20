@@ -24,6 +24,16 @@ Editor.registerPanel( 'builder.panel', {
                 return [];
             },
         },
+
+        buildProgress: {
+            type: Number,
+            value: 0,
+        },
+
+        buildState: {
+            type: String,
+            value: 'finish',
+        },
     },
 
     observers: [
@@ -84,7 +94,7 @@ Editor.registerPanel( 'builder.panel', {
             properties: ['openDirectory']
         }, function (res) {
             if (res) {
-                this.buildPath = Path.join( res[0], 'build', this.profiles.project.title );
+                this.set('profiles.project.buildPath', res[0]);
             }
         }.bind(this));
     },
@@ -92,11 +102,11 @@ Editor.registerPanel( 'builder.panel', {
     _onShowInFinderClick: function (event) {
         event.stopPropagation();
 
-        if (!Fs.existsSync(this.buildPath)) {
-            Editor.warn('%s not exists!', this.buildPath);
+        if (!Fs.existsSync(this.profiles.project.buildPath)) {
+            Editor.warn('%s not exists!', this.profiles.project.buildPath);
             return;
         }
-        Shell.showItemInFolder(Path.normalize(this.buildPath));
+        Shell.showItemInFolder(this.profiles.project.buildPath);
         Shell.beep();
 
     },
@@ -155,6 +165,20 @@ Editor.registerPanel( 'builder.panel', {
     _projectProfileChanged: function ( changeRecord ) {
         if ( this.profiles.project.save ) {
             this.profiles.project.save();
+        }
+    },
+
+    _isBuilding: function ( state ) {
+        return state !== 'finish';
+    },
+
+    'builder:state-changed': function ( state, progress, err ) {
+        this.buildState = state;
+        this.buildProgress = progress;
+
+        if ( state === 'error' ) {
+            this.buildState = 'failed';
+            this.$.progress.failed = true;
         }
     },
 });
