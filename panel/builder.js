@@ -32,7 +32,7 @@ Editor.registerPanel( 'builder.panel', {
 
         buildState: {
             type: String,
-            value: 'finish',
+            value: 'sleep',
         },
     },
 
@@ -121,6 +121,8 @@ Editor.registerPanel( 'builder.panel', {
     _onBuildClick: function (event) {
         event.stopPropagation();
 
+        this.cancelAsync(this._sleepID);
+
         var buildUuidList = this.sceneList.filter( function ( scene ) {
             return scene.checked;
         }).map( function ( scene ) {
@@ -169,7 +171,7 @@ Editor.registerPanel( 'builder.panel', {
     },
 
     _isBuilding: function ( state ) {
-        return state !== 'finish';
+        return state !== 'sleep';
     },
 
     'builder:state-changed': function ( state, progress, err ) {
@@ -179,6 +181,14 @@ Editor.registerPanel( 'builder.panel', {
         if ( state === 'error' ) {
             this.buildState = 'failed';
             this.$.progress.failed = true;
+            return;
+        }
+
+        if ( state === 'finish' ) {
+            this._sleepID = this.async(function () {
+                this.buildState = 'sleep';
+                this._sleepID = -1;
+            },1000);
         }
     },
 });
