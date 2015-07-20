@@ -9,59 +9,69 @@
                 Please enter the correct data!
             </span>
         </div>
-        <div class="section">
-            <editor-custom-prop name="Project Name">
-                <editor-input value="{{projectInfo.name}}"></editor-input>
+        <div class="section flex-1">
+            <editor-custom-prop name="Title">
+                <editor-input value="{{profiles.project.title}}"></editor-input>
             </editor-custom-prop>
 
             <editor-custom-prop name="Platform">
-                <editor-select value="{{platform}}">
-                    <editor-option value="web-mobile">Web Mobile</editor-option>
-                    <editor-option value="Web-Desktop">Web Desktop</editor-option>
+                <editor-select value="{{profiles.project.platform}}">
+                    <template is="dom-repeat" items="{{platformList}}">
+                        <editor-option value="{{item.value}}">{{item.text}}</editor-option>
+                    </template>
                 </editor-select>
             </editor-custom-prop>
 
             <editor-custom-prop name="Build Path">
                 <div class="layout horizontal center">
-                    <editor-input class="flex-2" value="{{buildPath}}"></editor-input>
-                    <editor-button class="small" style="margin-left: 5px;" on-click="_onChooseDistPathClick">···</editor-button>
-                </div>
-            </editor-custom-prop>
-
-            <editor-custom-prop name="Show in finder">
-                <div class="layout horizontal center">
-                    <span class="path flex-4">{{buildPath}}</span>
-                    <editor-button class="small" style="margin-left: 5px;" on-click="_onShowInFinderClick">Show in finder</editor-button>
+                    <editor-input class="flex-2" value="{{profiles.project.buildPath}}"></editor-input>
+                    <editor-button class="small" on-click="_onChooseDistPathClick">
+                        ···
+                    </editor-button>
+                    <editor-button class="small" on-click="_onShowInFinderClick">
+                        Open
+                    </editor-button>
                 </div>
             </editor-custom-prop>
 
             <editor-custom-prop name="Start Scene">
-                <editor-select value="">
-                    <!-- <editor-option value="web-mobile">Web Mobile</editor-option> -->
+                <editor-select value="{{profiles.project.startScene}}">
+                    <template is="dom-repeat" items="{{sceneList}}">
+                        <template is="dom-if" if="{{item.checked}}">
+                            <editor-option value="{{item.value}}">{{item.text}}</editor-option>
+                        </template>
+                    </template>
                 </editor-select>
             </editor-custom-prop>
 
-            <editor-custom-prop name="Scenes In Build">
-                <div class="items">
-                    <div class="box-border">
-                    </div>
+            <editor-custom-prop name="Scenes">
+                <div class="list-view">
+                    <template is="dom-repeat" id="sceneList" items="{{sceneList}}">
+                        <li class="layout horizontal center">
+                            <editor-checkbox class="flex-1"
+                                readonly="{{_isStartScene(profiles.project.startScene,item.value)}}"
+                                checked="{{item.checked}}"
+                                on-checked-changed="_onCheckedChanged"
+                            >{{item.text}}</editor-checkbox>
+                            <i class="fa fa-star" hidden="{{!_isStartScene(profiles.project.startScene,item.value)}}"></i>
+                        </li>
+                    </template>
                 </div>
             </editor-custom-prop>
 
             <editor-custom-prop name="Debug Mode">
-                <editor-checkbox checked="{{isDebug}}"></editor-checkbox>
+                <editor-checkbox checked="{{profiles.project.debug}}"></editor-checkbox>
             </editor-custom-prop>
 
             <editor-custom-prop name="Preview">
                 <div class="layout horizontal center">
                     <span class="link flex-4" on-click="_onPreviewClick">http://localhost:7456</span>
-                    <editor-button class="small" on-click="_onPreviewClick" style="margin-left: 5px;">Open in Browser</editor-button>
+                    <editor-button class="small" on-click="_onPreviewClick" style="margin-left: 5px;">Run</editor-button>
                 </div>
             </editor-custom-prop>
         </div>
 
         <div class="btn-group">
-            <editor-button class="red large" nofocus on-click="_onCloseWindowClick">Close</editor-button>
             <editor-button class="green large" nofocus on-click="_onBuildClick">Build</editor-button>
         </div>
     </template>

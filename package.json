@@ -24,7 +24,17 @@
       "height": 550,
       "min-height": 550,
       "messages": [
-      ]
+      ],
+      "profiles": {
+        "project": {
+          "title": "",
+          "platform": "web-mobile",
+          "buildPath": "",
+          "startScene": "",
+          "excludeScenes": [],
+          "debug": false
+        }
+      }
     }
   }
 }
