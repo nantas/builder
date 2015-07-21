@@ -185,7 +185,7 @@ Editor.registerPanel( 'builder.panel', {
 
         if ( state === 'error' ) {
             this.buildState = 'failed';
-            this.$.progress.failed = true;
+            this.$.progress.state = 'failed';
             return;
         }
 
