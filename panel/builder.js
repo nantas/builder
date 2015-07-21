@@ -175,6 +175,10 @@ Editor.registerPanel( 'builder.panel', {
         return state !== 'sleep';
     },
 
+    _buildStateText: function ( state ) {
+        return EditorUI.toHumanText(state);
+    },
+
     'builder:state-changed': function ( state, progress, err ) {
         this.buildState = state;
         this.buildProgress = progress;

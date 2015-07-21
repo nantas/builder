@@ -6,7 +6,7 @@
         <div class="title">
             <h2>Build Settings</h2>
             <div hidden="{{!_isBuilding(buildState)}}" class="layout horizontal center">
-                <span class="state flex-1">[[buildState]]</span>
+                <span class="state flex-1">[[_buildStateText(buildState)]]</span>
                 <editor-progress id="progress" class="blue small flex-4"
                     value="[[buildProgress]]"
                 ></editor-progress>
