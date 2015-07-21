@@ -122,6 +122,7 @@ Editor.registerPanel( 'builder.panel', {
         event.stopPropagation();
 
         this.cancelAsync(this._sleepID);
+        this.$.progress.reset();
 
         var buildUuidList = this.sceneList.filter( function ( scene ) {
             return scene.checked;
