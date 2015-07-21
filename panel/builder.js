@@ -71,7 +71,7 @@ Editor.registerPanel( 'builder.panel', {
                 self.sceneList = results.map( function ( result ) {
                     return {
                         value: result.uuid,
-                        text: result.name,
+                        text: result.url,
                         checked: self.profiles.project.excludeScenes.indexOf(result.uuid) === -1
                     };
                 });
