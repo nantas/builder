@@ -30,9 +30,11 @@
         "project": {
           "title": "",
           "platform": "web-mobile",
-          "buildPath": "",
           "startScene": "",
-          "excludeScenes": [],
+          "excludeScenes": []
+        },
+        "local": {
+          "buildPath": "",
           "debug": false
         }
       }

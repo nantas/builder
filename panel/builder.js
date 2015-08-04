@@ -37,18 +37,19 @@ Editor.registerPanel( 'builder.panel', {
     },
 
     observers: [
-        '_projectProfileChanged(profiles.project.*)'
+        '_projectProfileChanged(profiles.project.*)',
+        '_localProfileChanged(profiles.local.*)'
     ],
 
     ready: function () {
-        this.async( function () {
+        this.async(function () {
             var self = this;
 
             if ( !self.profiles.project.title ) {
                 self.set('profiles.project.title', Editor.projectInfo.name );
             }
-            if ( !self.profiles.project.buildPath ) {
-                self.set('profiles.project.buildPath',
+            if ( !self.profiles.local.buildPath ) {
+                self.set('profiles.local.buildPath',
                          Path.join( Editor.projectInfo.path, 'build', self.profiles.project.title ) );
             }
             Editor.assetdb.queryAssets( 'assets://**/*', 'scene', function ( results ) {
@@ -94,7 +95,7 @@ Editor.registerPanel( 'builder.panel', {
             properties: ['openDirectory']
         }, function (res) {
             if (res) {
-                this.set('profiles.project.buildPath', res[0]);
+                this.set('profiles.local.buildPath', res[0]);
             }
         }.bind(this));
     },
@@ -102,11 +103,11 @@ Editor.registerPanel( 'builder.panel', {
     _onShowInFinderClick: function (event) {
         event.stopPropagation();
 
-        if (!Fs.existsSync(this.profiles.project.buildPath)) {
-            Editor.warn('%s not exists!', this.profiles.project.buildPath);
+        if (!Fs.existsSync(this.profiles.local.buildPath)) {
+            Editor.warn('%s not exists!', this.profiles.local.buildPath);
             return;
         }
-        Shell.showItemInFolder(this.profiles.project.buildPath);
+        Shell.showItemInFolder(this.profiles.local.buildPath);
         Shell.beep();
 
     },
@@ -134,10 +135,10 @@ Editor.registerPanel( 'builder.panel', {
             Editor.sendToCore('app:build-project', {
                 title: this.profiles.project.title,
                 platform: this.profiles.project.platform,
-                buildPath: this.profiles.project.buildPath,
+                buildPath: this.profiles.local.buildPath,
                 startScene: this.profiles.project.startScene,
                 scenes: buildUuidList,
-                debug: this.profiles.project.debug,
+                debug: this.profiles.local.debug,
             });
         }
         else {
@@ -168,6 +169,12 @@ Editor.registerPanel( 'builder.panel', {
     _projectProfileChanged: function ( changeRecord ) {
         if ( this.profiles.project.save ) {
             this.profiles.project.save();
+        }
+    },
+
+    _localProfileChanged: function ( changeRecord ) {
+        if ( this.profiles.local.save ) {
+            this.profiles.local.save();
         }
     },
 

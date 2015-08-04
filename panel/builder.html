@@ -28,7 +28,7 @@
 
             <editor-custom-prop name="Build Path">
                 <div class="layout horizontal center">
-                    <editor-input class="flex-2" value="{{profiles.project.buildPath}}"></editor-input>
+                    <editor-input class="flex-2" value="{{profiles.local.buildPath}}"></editor-input>
                     <editor-button class="small" on-click="_onChooseDistPathClick">
                         ···
                     </editor-button>
@@ -64,7 +64,7 @@
             </editor-custom-prop>
 
             <editor-custom-prop name="Debug Mode">
-                <editor-checkbox checked="{{profiles.project.debug}}"></editor-checkbox>
+                <editor-checkbox checked="{{profiles.local.debug}}"></editor-checkbox>
             </editor-custom-prop>
 
             <editor-custom-prop name="Preview">
