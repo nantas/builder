@@ -40,7 +40,8 @@ editor-custom-prop {
 
 .list-view {
     overflow-y: auto;
-    height: 80px;
+    min-height: 80px;
+    max-height: 200px;
     border: 1px solid #666666;
 
     padding: 5px;
@@ -54,6 +55,10 @@ editor-custom-prop {
 
 .list-view li i {
     color: yellow;
+}
+
+.list-view editor-checkbox {
+    overflow: hidden;
 }
 
 .link {

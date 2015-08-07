@@ -152,6 +152,10 @@ Editor.registerPanel( 'builder.panel', {
 
     _onCheckedChanged: function () {
         var model = this.$.sceneList.modelForElement(event.target);
+        // NOTE: this is possible in init of builder
+        if ( !model.item )
+            return;
+
         var idx = this.profiles.project.excludeScenes.indexOf( model.item.value );
 
         if ( model.item.checked ) {
