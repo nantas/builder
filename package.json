@@ -4,8 +4,8 @@
   "description": "Fireball Project Builder",
   "author": "Firebox Technology",
   "hosts": {
-      "editor-framework": "^0.3.12",
-      "canvas-studio": "^0.2.0"
+    "canvas-studio": "^0.2.0",
+    "editor-framework": "^0.3.14"
   },
   "main": "main.js",
   "menus": {
