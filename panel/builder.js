@@ -139,6 +139,8 @@ Editor.registerPanel( 'builder.panel', {
                 startScene: this.profiles.project.startScene,
                 scenes: buildUuidList,
                 debug: this.profiles.local.debug,
+                previewWidth: this.profiles.local.previewWidth,
+                previewHeight: this.profiles.local.previewHeight,
             });
         }
         else {

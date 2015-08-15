@@ -67,6 +67,14 @@
                 <editor-checkbox checked="{{profiles.local.debug}}"></editor-checkbox>
             </editor-custom-prop>
 
+            <editor-custom-prop name="Preview Resolution">
+                <div class="layout horizontal center">
+                    <editor-unit-input class="flex-1" value="{{profiles.local.previewWidth}}" hint="W"></editor-unit-input>
+                    <span style="margin: 0px 10px;">X</span>
+                    <editor-unit-input class="flex-1" value="{{profiles.local.previewHeight}}" hint="H"></editor-unit-input>
+                </div>
+            </editor-custom-prop>
+
             <editor-custom-prop name="Preview">
                 <div class="layout horizontal center">
                     <span class="link flex-4" on-click="_onPreviewClick">http://localhost:7456</span>

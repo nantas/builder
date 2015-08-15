@@ -35,7 +35,9 @@
         },
         "local": {
           "buildPath": "",
-          "debug": false
+          "debug": false,
+          "previewWidth": "1280",
+          "previewHeight": "720"
         }
       }
     }
