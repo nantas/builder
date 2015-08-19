@@ -115,7 +115,7 @@ Editor.registerPanel( 'builder.panel', {
     _onPreviewClick: function (event) {
         event.stopPropagation();
 
-        Shell.openExternal('http://localhost:7456');
+        Shell.openExternal('http://localhost:7456/build');
         Shell.beep();
     },
 
