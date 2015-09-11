@@ -143,8 +143,8 @@ Editor.registerPanel( 'builder.panel', {
                 startScene: this.profiles.project.startScene,
                 scenes: buildUuidList,
                 debug: this.profiles.local.debug,
-                previewWidth: this.profiles.local.previewWidth,
-                previewHeight: this.profiles.local.previewHeight,
+                previewWidth: parseInt(this.profiles.local.previewWidth),
+                previewHeight: parseInt(this.profiles.local.previewHeight),
             });
         }
         else {
