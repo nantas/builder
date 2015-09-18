@@ -152,6 +152,12 @@ Editor.registerPanel( 'builder.panel', {
         }
     },
 
+    _onBuildRuntimeClick: function (event) {
+        Editor.sendToCore('builder:build-runtime-project', {
+            foobar: 'foobar'
+        });
+    },
+
     _isStartScene: function ( startScene, value ) {
         return startScene === value;
     },

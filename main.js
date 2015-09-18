@@ -8,4 +8,8 @@ module.exports = {
     'builder:open': function () {
         Editor.Panel.open('builder.panel');
     },
+
+    'builder:build-runtime-project': function ( settings ) {
+        Editor.log( 'on build runtime project', settings );
+    },
 };
