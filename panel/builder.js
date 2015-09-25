@@ -5,8 +5,6 @@ var Path = require('fire-path');
 var Shell = require('shell');
 
 Editor.registerPanel( 'builder.panel', {
-    is: 'editor-builder',
-
     properties: {
         platformList: {
             type: Array,
