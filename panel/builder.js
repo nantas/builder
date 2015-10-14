@@ -12,10 +12,7 @@ Editor.registerPanel( 'builder.panel', {
                 return [
                     { value: 'web-mobile', text: 'Web Mobile' },
                     { value: 'web-desktop', text: 'Web Desktop' },
-                    { value: 'native-mac', text: 'Mac OSX' },
-                    //{ value: 'native-win', text: 'Windows' },
-                    //{ value: 'native-android', text: 'Android' },
-                    //{ value: 'native-ios', text: 'iOS' },
+                    { value: 'runtime', text: 'Runtime' }
                 ];
             },
         },
