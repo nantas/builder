@@ -51,7 +51,7 @@ Editor.registerPanel( 'builder.panel', {
                 self.set('profiles.local.buildPath',
                          Path.join( Editor.projectInfo.path, 'build', self.profiles.project.title ) );
             }
-            Editor.assetdb.queryAssets( 'assets://**/*', 'scene', function ( results ) {
+            Editor.assetdb.queryAssets( 'db://assets/**/*', 'scene', function ( results ) {
                 // clean up excludeScenes
                 var needSave = false;
                 self.profiles.project.excludeScenes.forEach(function ( excludeScene, index ) {
