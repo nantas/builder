@@ -141,6 +141,7 @@ Editor.registerPanel( 'builder.panel', {
                 previewWidth: parseInt(this.profiles.local.previewWidth),
                 previewHeight: parseInt(this.profiles.local.previewHeight),
             });
+            Editor.Metrics.trackBuild(this.profiles.project.platform);
         }
         else {
             Editor.error('Please select scenes to build');
