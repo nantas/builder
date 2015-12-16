@@ -9,7 +9,7 @@
   },
   "main": "main.js",
   "menus": {
-    "File/Build Settings": {
+    "i18n:MAIN_MENU.file.title/i18n:MAIN_MENU.panel.build": {
       "message": "builder:open",
       "accelerator": "CmdOrCtrl+Shift+B"
     }
@@ -18,11 +18,11 @@
     "panel": {
       "frame": "panel/builder.html",
       "type": "dockable",
-      "title": "Builder",
+      "title": "i18n:MAIN_MENU.panel.build",
       "width": 500,
       "min-width": 325,
-      "height": 550,
-      "min-height": 550,
+      "height": 700,
+      "min-height": 700,
       "messages": [
         "builder:state-changed"
       ],

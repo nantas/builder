@@ -6,7 +6,7 @@
 
     <template>
         <div class="title">
-            <h2>Build Settings</h2>
+            <h2>[[_T('MAIN_MENU.panel.build')]]</h2>
             <div hidden="{{!_isBuilding(buildState)}}" class="layout horizontal center">
                 <span class="state flex-1">[[_buildStateText(buildState)]]</span>
                 <editor-progress id="progress" class="blue small flex-4"
@@ -16,11 +16,11 @@
         </div>
 
         <div class="section flex-1">
-            <editor-custom-prop name="Title">
+            <editor-custom-prop name="[[_T('BUILDER.title')]]">
                 <editor-input value="{{profiles.project.title}}"></editor-input>
             </editor-custom-prop>
 
-            <editor-custom-prop name="Platform">
+            <editor-custom-prop name="[[_T('BUILDER.platform')]]">
                 <editor-select value="{{profiles.project.platform}}">
                     <template is="dom-repeat" items="{{platformList}}">
                         <editor-option value="{{item.value}}">{{item.text}}</editor-option>
@@ -28,19 +28,19 @@
                 </editor-select>
             </editor-custom-prop>
 
-            <editor-custom-prop name="Build Path">
+            <editor-custom-prop name="[[_T('BUILDER.build_path')]]">
                 <div class="layout horizontal center">
                     <editor-input class="flex-2" value="{{profiles.local.buildPath}}"></editor-input>
                     <editor-button class="small" on-click="_onChooseDistPathClick">
                         ···
                     </editor-button>
                     <editor-button class="small" on-click="_onShowInFinderClick">
-                        Open
+                        [[_T('SHARED.open')]]
                     </editor-button>
                 </div>
             </editor-custom-prop>
 
-            <editor-custom-prop name="Start Scene">
+            <editor-custom-prop name="[[_T('BUILDER.start_scene')]]">
                 <editor-select value="{{profiles.project.startScene}}">
                     <template is="dom-repeat" items="{{sceneList}}">
                         <template is="dom-if" if="{{item.checked}}">
@@ -50,7 +50,7 @@
                 </editor-select>
             </editor-custom-prop>
 
-            <editor-custom-prop name="Scenes">
+            <editor-custom-prop name="[[_T('BUILDER.scenes')]]">
                 <div class="list-view">
                     <template is="dom-repeat" id="sceneList" items="{{sceneList}}">
                         <li class="layout horizontal center">
@@ -65,11 +65,11 @@
                 </div>
             </editor-custom-prop>
 
-            <editor-custom-prop name="Debug Mode">
+            <editor-custom-prop name="[[_T('BUILDER.debug')]]">
                 <editor-checkbox checked="{{profiles.local.debug}}"></editor-checkbox>
             </editor-custom-prop>
 
-            <editor-custom-prop name="Preview Resolution">
+            <editor-custom-prop name="[[_T('BUILDER.resolution')]]">
                 <div class="layout horizontal center">
                     <editor-unit-input class="flex-1" value="{{profiles.local.previewWidth}}" hint="W"></editor-unit-input>
                     <span style="margin: 0px 10px;">X</span>
@@ -77,16 +77,16 @@
                 </div>
             </editor-custom-prop>
 
-            <editor-custom-prop name="Preview">
+            <editor-custom-prop name="[[_T('BUILDER.preview')]]">
                 <div class="layout horizontal center">
                     <span class="link flex-4" on-click="_onPreviewClick">http://localhost:7456/build</span>
-                    <editor-button class="small" on-click="_onPreviewClick" style="margin-left: 5px;">Run</editor-button>
+                    <editor-button class="small" on-click="_onPreviewClick" style="margin-left: 5px;">[[_T('MAIN_MENU.edit.play')]]</editor-button>
                 </div>
             </editor-custom-prop>
         </div>
 
         <div class="group layout horizontal center">
-            <editor-button class="green large" nofocus on-click="_onBuildClick">Build</editor-button>
+            <editor-button class="green large" nofocus on-click="_onBuildClick">[[_T('BUILDER.build')]]</editor-button>
         </div>
     </template>
 

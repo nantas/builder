@@ -1,5 +1,6 @@
+'use strict';
+
 var Remote = require('remote');
-var Url = require('fire-url');
 var Fs = require('fire-fs');
 var Path = require('fire-path');
 var Shell = require('shell');
@@ -81,6 +82,10 @@ Editor.registerPanel( 'builder.panel', {
                 }
             });
         });
+    },
+
+    _T: function( text_id ) {
+        return Editor.T(text_id);
     },
 
     _onChooseDistPathClick: function (event) {
